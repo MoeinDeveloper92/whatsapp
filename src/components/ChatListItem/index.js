@@ -1,15 +1,16 @@
 import { View, Text, Image, StyleSheet } from "react-native"
-import hero from "../../../assets/images/hero.jpg"
-const ChatListitem = () => {
+
+const ChatListitem = ({ chat }) => {
+
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={hero} resizeMode="contain" />
+            <Image style={styles.image} source={chat.user.image} resizeMode="contain" />
             <View style={styles.content}>
                 <View style={styles.row}>
-                    <Text style={styles.name} numberOfLines={1} >Moein</Text>
-                    <Text style={styles.subTitle}>8:30</Text>
+                    <Text style={styles.name} numberOfLines={1} >{chat.user.name}</Text>
+                    <Text style={styles.subTitle}>{chat.lastMessage.createdAt}</Text>
                 </View>
-                <Text numberOfLines={2} style={styles.subTitle}>Where Are You?</Text>
+                <Text numberOfLines={2} style={styles.subTitle}>{chat.lastMessage.text}</Text>
             </View>
         </View>
     )
